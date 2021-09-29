@@ -1,0 +1,1 @@
+print("ja norn daia yang")
