@@ -17,7 +17,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     <br>[<a href="http://158.108.207.4/db21/db21_008/?controller=pages&action=home">Home </a>] 
         [<a href="http://158.108.207.4/db21/db21_008/?controller=quotation&action=index">quotation</a>]
         [<a href="http://158.108.207.4/db21/db21_008/?controller=quotationDetail&action=index">quotationDetail</a>]
-        [<a href="http://158.108.207.4/db21/db21_008/?controller=product&action=index">product</a>]
+        [<a href="http://158.108.207.4/db21/db21_008/?controller=price range&action=index">price range</a>]
       
     <br>
 
