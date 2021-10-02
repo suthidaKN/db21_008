@@ -1,10 +1,9 @@
 <?php
 class QuotationController
 {
-
-    public function index_Quotation()
+    public function index()
     {
-        $Quotation_List = Quotation::getAll();
+        $Quotation_list = Quotation::getAll();
         require_once("./views/Quotation/index_Quotation.php");
     }
 }

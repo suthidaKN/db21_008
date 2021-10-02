@@ -1,41 +1,45 @@
-<div Align ="Center">
-<!DOCTYPE html>
+<table border = 1 >
 
-<html>
-<head>
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+<tr> 
 
+    <td>QID</td>
 
-<table style="width:80%">
-    <tr bgcolor = "lightblue">
-        <td>QID</td>
-        <td>date</td>
-        <td>empID</td>
-        <td>cusID</td>
-        <td>paymentTerm</td>
-        <td>Update</td>
-        <td>Delete</td>
-    </tr>
+    <td>Date</td>
 
-<?php 
-foreach($Quotation_List as $Quotation)
+    <td>Employee</td>
+
+    <td>Customer</td>
+
+    <td>paymentTerm</td>
+
+    <td>Update</td>
+
+    <td>Delete</td>
+
+</tr>
+
+<?php foreach($Quotation_list as $Quotation)
+
 {
-    echo "<tr>
-        <td>$Quotation->QID</td>
-        <td>$Quotation->date</td>
-        <td>$Quotation->empID</td>
-        <td>$Quotation->cusID</td>
-        <td>$Quotation->paymentTerm</td>
-        <td><a href=?controller=index_Quotation&action=update&Q_ID=$Quotation->ID>Update</a></td>
-        <td><a href=?controller=index_Quotation&action=delete&Q_ID=$Quotation->ID>Delete</a></td>
+
+    echo "<tr><td>$Quotation->QID</td>
+
+    <td>$Quotation->date</td>
+
+    <td>$Quotation->empName</td>
+
+    <td>$Quotation->cusName</td>
+
+    <td>$Quotation->paymentTerm</td>
+
+    <td>Update</td>
+
+    <td>Delete</td>
+
     </tr>";
+
 }
+
 echo "</table>";
+
 ?>
-</body>
-</html>
-</div>

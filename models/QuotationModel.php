@@ -6,22 +6,26 @@ class Quotation
     public $empID;
     public $cusID;
     public $paymentTerm;
+    public $empName;
+    public $cusName;
 
 
-    public function __construct($QID,$date,$empID,$cusID,$paymentTerm)
+    public function __construct($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName)
     {
         $this->QID = $QID;
         $this->date = $date;
         $this->empID = $empID;
         $this->cusID = $cusID;
-        $this->payment = $paymentTerm;
+        $this->paymentTerm = $paymentTerm;
+        $this->empName = $empName;
+        $this->cusName = $cusName;
     }
 
     public static function getAll()
     {
         $QuotationList = [];
         require("connection_connect.php");
-        $sql = "SELECT * from Quotation Natural JOIN Customer Natural JOIN Employee ";
+        $sql = "SELECT * FROM Quotation NATURAL JOIN Employee NATURAL JOIN Customer";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc())
         {
@@ -30,7 +34,10 @@ class Quotation
             $empID = $row[empID];
             $cusID = $row[cusID];
             $paymentTerm = $row[paymentTerm];
-            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm);
+            $empName = $row[empName];
+            $cusName = $row[cusName];
+
+            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName);
         }
         require("connection_close.php");
 
