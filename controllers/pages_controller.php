@@ -1,6 +1,6 @@
 <?php
-class PagesController
-{
+    class PagesController
+    {
     
         public function error(){   
             require_once("views/pages/error.php"); 
@@ -10,5 +10,5 @@ class PagesController
         }
 
         
-}
+    }
 ?>
