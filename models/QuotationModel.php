@@ -10,12 +10,12 @@
 
         public function_construct($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
         {
-            $this -> QID = $QID;
-            $this -> date = $date;
-            $this -> emp = $empID;
-            $this -> cus = $cusID;
-            $this -> paymentT = $paymentTerm;
-            $this -> Deposit = $Deposit
+            $this->QID = $QID;
+            $this->date = $date;
+            $this->empID = $empID;
+            $this->cusID = $cusID;
+            $this->paymentTerm = $paymentTerm;
+            $this->Deposit = $Deposit
         }
 
         public static function getAll()
