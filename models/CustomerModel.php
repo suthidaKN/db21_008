@@ -9,6 +9,7 @@ class Customer
         $this->cusID = $cusID;
         $this->cusName = $cusName;
     }
+    
     public static function getAll()
     {
         $customerList = [];
@@ -18,7 +19,7 @@ class Customer
         while ($my_row = $result->fetch_assoc()) {
             $cusID = $my_row[cusID];
             $cusName = $my_row[cusName];
-            $customerList[] = new Customer($cusID, $cusName);
+            $customerList[] = new Customer($cusID,$cusName);
         }
         require("connection_close.php");
 

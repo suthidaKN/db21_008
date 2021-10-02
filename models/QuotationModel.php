@@ -8,9 +8,10 @@ class Quotation
     public $paymentTerm;
     public $empName;
     public $cusName;
+    public $Deposit;
 
 
-    public function __construct($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName)
+    public function __construct($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit)
     {
         $this->QID = $QID;
         $this->date = $date;
@@ -19,6 +20,7 @@ class Quotation
         $this->paymentTerm = $paymentTerm;
         $this->empName = $empName;
         $this->cusName = $cusName;
+        $this->Deposit = $Deposit;
     }
 
     public static function getAll()
@@ -36,12 +38,23 @@ class Quotation
             $paymentTerm = $row[paymentTerm];
             $empName = $row[empName];
             $cusName = $row[cusName];
+            $Deposit = $row[Deposit];
 
-            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName);
+            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
         }
         require("connection_close.php");
 
         return $QuotationList;
+    }
+
+    public static function add($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
+    {
+        require("connection_connect.php");
+        $sql = "INSERT INTO `Quotation`(`QID`,`date`,`empID`,`cusID`,`paymentTerm`,`Deposit`) VALUES ('$QID','$date','$empID','$cusID','$paymentTerm','$Deposit')";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+       
+        return ;
     }
 }
 ?>

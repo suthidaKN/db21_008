@@ -9,6 +9,7 @@ class Employee
         $this->empID = $empID;
         $this->empName = $empName;
     }
+    
     public static function getAll()
     {
         $employeeList = [];
