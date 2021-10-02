@@ -1,42 +1,40 @@
 <?php
-    class Quotation
-    {   
-        public $QID;
-        public $date;
-        public $empID;
-        public $cusID;
-        public $paymentTerm;
-        public $Deposit;
+class Quotation
+{
+    public $QID;
+    public $date;
+    public $empID;
+    public $cusID;
+    public $paymentTerm;
 
-        public function __construct($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
-        {
-            $this -> QID = $QID;
-            $this -> date = $date;
-            $this -> empID = $empID;
-            $this -> cusID = $cusID;
-            $this -> paymentTerm = $paymentTerm;
-            $this -> Deposit = $Deposit
-        }
 
-        public static function getAll()
-        {
-            $QuotationList = [];
-            require("connection_connnect.php");
-            $sql = "SELECT * FROM Quotation ";
-            $result = $conn->query($sql);
-            while($my_row = $result -> fetch_assoc())
-            {
-                $QID = $my_row[QID];
-                $date = $my_row[date];
-                $empID = $my_row[empID];
-                $cusID = $my_row[cusID];
-                $paymentTerm = $my_row[paymentTerm];
-                $Deposit = $my_row[Deposit];
-                $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
-            }
-            require("connection_close.php");
-
-            return $QuotationList;
-        }
+    public function __construct($QID,$date,$empID,$cusID,$paymentTerm)
+    {
+        $this->QID = $QID;
+        $this->date = $date;
+        $this->empID = $empID;
+        $this->cusID = $cusID;
+        $this->payment = $paymentTerm;
     }
+
+    public static function getAll()
+    {
+        $QuotationList = [];
+        require("connection_connect.php");
+        $sql = "SELECT * from Quotation Natural JOIN Customer Natural JOIN Employee ";
+        $result = $conn->query($sql);
+        while($row = $result->fetch_assoc())
+        {
+            $QID = $row[QID];
+            $date = $row[date];
+            $empID = $row[empID];
+            $cusID = $row[cusID];
+            $paymentTerm = $row[paymentTerm];
+            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm);
+        }
+        require("connection_close.php");
+
+        return $QuotationList;
+    }
+}
 ?>
