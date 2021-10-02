@@ -1,5 +1,5 @@
 <?php
-    class Quotation
+    class quotation
     {   
         public $QID;
         public $date;
@@ -32,7 +32,7 @@
                 $cusID = $my_row[cusID];
                 $paymentTerm = $my_row[paymentTerm];
                 $Deposit = $my_row[Deposit];
-                $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
+                $QuotationList[] = new quotation($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
             }
             require("connection_close.php");
             return $QuotationList;
