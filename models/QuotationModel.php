@@ -1,31 +1,38 @@
 <?php
     class Quotation
     {   
-        public $QID,$date,$emp,$cus,$paymentT;
+        public $QID;
+        public $date;
+        public $empID;
+        public $cusID;
+        public $paymentTerm;
+        public $Deposit;
 
-        public function_construct($QID,$date,$emp,$cus,$paymentT)
+        public function_construct($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
         {
             $this -> QID = $QID;
             $this -> date = $date;
-            $this -> emp = $emp;
-            $this -> cus = $cus;
-            $this -> paymentT = $paymentT;
+            $this -> emp = $empID;
+            $this -> cus = $cusID;
+            $this -> paymentT = $paymentTerm;
+            $this -> Deposit = $Deposit
         }
 
         public static function getAll()
         {
             $QuotationList = [];
-            require("concection_connect.php");
-            $sql = "SELECT QID,Quotation.date,Employee.empName,Customer.cusName,Quotation.paymentTerm FROM Quotation NATURAL JOIN Employee NATURAL JOIN Customer";
+            require("connection_connect.php");
+            $sql = "SELECT * FROM Quotation ";
             $result = $conn->query($sql);
             while($my_row = $result -> fetch_assoc())
             {
                 $QID = $my_row[QID];
                 $date = $my_row[date];
-                $emp = $my_row[empID];
-                $cus = $my_row[cusID];
-                $paymentT = $my_row[paymentTerm];
-                $QuotationList[] = new Quotation($QID,$date,$emp,$cus,$paymentT);
+                $empID = $my_row[empID];
+                $cusID = $my_row[cusID];
+                $paymentTerm = $my_row[paymentTerm];
+                $Deposit = $my_row[Deposit];
+                $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
             }
             require("connection_close.php");
             return $QuotationList;

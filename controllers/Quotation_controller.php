@@ -4,7 +4,7 @@
          public function index()
          {
              $Quotation_list = Quotation::getAll();
-             require_once("views/Quotation/index_Quotation.php");
+             require_once("./views/Quotation/index_Quotation.php");
          }   
     }
 ?>

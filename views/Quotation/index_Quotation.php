@@ -4,9 +4,10 @@
 {
     echo "<tr><td>$Quotation->QID</td>
     <td>$Quotation->date</td>
-    <td>$Quotation->emp</td>
-    <td>$Quotation->cus</td>
-    <td>$Quotation->paymentT</td>
+    <td>$Quotation->empID</td>
+    <td>$Quotation->cusID</td>
+    <td>$Quotation->paymentTerm</td>
+    <td>$Quotation->Deposit</td>
     <td>Update</td>
     <td>Delete</td>
     </tr>";
