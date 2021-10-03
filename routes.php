@@ -14,6 +14,13 @@ function call($controller, $action){
                             require_once("./models/EmployeeModel.php");
                     $controller = new QuotationController();  
                     break;
+        case "QuotationDetail" : echo "suthida";
+                            require_once("./models/QuotationDetailModel.php");
+                            $controller = new QuotationDetail();
+                            break;
+       
+    
+    
     }
 
     $controller->{$action}();
