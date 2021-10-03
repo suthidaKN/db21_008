@@ -41,7 +41,7 @@ class QuotationDetail{
         require("./connection_connect.php");
 
         echo "$QID,$Qty,$printColor,$productColorID";
-        $sql = "INSERT INTO `QuotationDetail` (`QD_ID`, `productColorID, `Qty`, `printColor`, `QID``)
+        $sql = "INSERT INTO `QuotationDetail` (`QD_ID`, `productColorID`, `Qty`, `printColor`, `QID`)
          VALUES (NULL, '$productColorID', '$Qty', '$printColor', '$QID')";
 
         $result = $conn->query($sql);

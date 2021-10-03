@@ -3,14 +3,14 @@
     <label>สินค้า    <select name="productID">
         <?php foreach($product_list as $product)
         {
-             echo "<option value$product->productID> $product->productName </option>";
+             echo "<option value=$product->productID> $product->productName </option>";
         }
         ?>
     </select></label><br>
     <label>สี <select name="productColorID">
         <?php foreach($productColor_list as $product)
         {
-             echo "<option value$product->productColorID> $product->color</option>";
+             echo "<option value=$product->productColorID> $product->color</option>";
         }
         ?>
     </select></label><br>
