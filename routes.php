@@ -18,9 +18,10 @@ function call($controller, $action){
         case "ProductRate": require_once("./models/ProductRateModel.php");
                             $controller = new ProductRateController();
                             break;
-        case "QuotationDetail" :require_once("./models/QuotationDetailModel.php");
-                            require_once("./models/productColorModel.php");
-                            require_once("./models/productModel.php");
+        case "QuotationDetail" : echo "aaa";
+                    require_once("./models/QuotationDetailModel.php");
+                    require_once("./models/productColorModel.php");
+                    require_once("./models/ProductModel.php");
                         $controller = new QuotationDetailController();
                         break;
 

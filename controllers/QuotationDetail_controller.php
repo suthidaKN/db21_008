@@ -2,15 +2,17 @@
 class QuotationDetailController{
     
     public function index(){
+        echo "aefs";
         $QuotationDetail_list = QuotationDetail::getAll();
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
     }
+
     public function newQuotationDetail(){
-        $Quotation_list = Quotation::getAll();
         $product_list = product::getAll();
         $productColor_list = productColor::getAll();
         require_once("./views/QuotationDetail/newQuotationDetail.php");
     }
+    
     
     public function addQuotationDetail(){
         $QID = $_GET['QID'];
@@ -24,8 +26,8 @@ class QuotationDetailController{
     }
     public function search(){
         $key = $_GET['key'];
-        echo "aaaa";
         $QuotationDetail_list = QuotationDetail::search($key);
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
     }
 }
+?>
