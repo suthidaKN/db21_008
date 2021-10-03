@@ -16,7 +16,7 @@ class productColor{
         require("./connection_connect.php");
         $sql ="SELECT * FROM ProductColor";
         $result = $conn->query($sql);
-        while($my_rom == $result->fetch_assoc()){
+        while($my_rom = $result->fetch_assoc()){
             $productID = $my_rom[productID];
             $productColorID = $my_rom[productColorID ];
             $color = $my_rom[color];

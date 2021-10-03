@@ -37,9 +37,13 @@ class QuotationDetail{
         require("./connection_close.php");
         return $QuotationDetailList;
     }
-    public static function Add($QID,$Qty,$printColor,$productID){
+    public static function Add($QID,$Qty,$printColor,$productColorID){
         require("./connection_connect.php");
-        $sql = "INSERT INTO `QuotationDetail` (`QD_ID`, `productColorID`, `Qty`, `printColor`, `QID`) VALUES (NULL, '$productID', '$Qty', '$printColor', '$QID')";
+
+        echo "$QID,$Qty,$printColor,$productColorID";
+        $sql = "INSERT INTO `QuotationDetail` (`QD_ID`, `productColorID, `Qty`, `printColor`, `QID``)
+         VALUES (NULL, '$productColorID', '$Qty', '$printColor', '$QID')";
+
         $result = $conn->query($sql);
         require("./connection_close.php");
         return "add success $result rows ";
@@ -65,6 +69,22 @@ class QuotationDetail{
         }
         require("./connection_close.php");
         return $QuotationDetailList;
+    }
+    public static function get($QID){
+        require("./connection_connect.php");
+        $sql ="SELECT * FROM QuotationDetail natural join Quotation natural join Product natural join ProductColor  where ProductColor.productColorID = QuotationDetail.productColorID AND ProductColor.productID = Product.productID AND Quotation.QID = QuotationDetail.QID 
+        QuotationDetail.QID = '$QID'";
+        $result = $conn->query($sql);
+        $my_rom = $result->fetch_assoc();
+        $QID = $my_rom[QID];
+        $productName = $my_rom[productName];
+        $productColor = $my_rom[color];
+        $Qty = $my_rom[Qty];
+        $printColor = $my_rom[printColor];
+        $productColorID = $my_rom[productColorID];
+        $productID = $my_rom[productID];
+        require("./connection_close.php");
+        return new QuotationDetail($QID,$productName,$productColor,$Qty,$printColor,$productID,$productColorID);
     }
 
 

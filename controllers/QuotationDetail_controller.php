@@ -14,12 +14,11 @@ class QuotationDetailController{
     
     
     public function addQuotationDetail(){
-        $QID = $_GET['QID'];
-        $productID = $_GET['productID'];
         $productColorID =$_GET['productColorID'];
         $Qty = $_GET['Qty'];
         $printColor = $_GET['printColor'];
-        QuotationDetail::Add($QID,$Qty,$printColor,$productID,$productColorID);
+        $QID = $_GET['QID'];
+        QuotationDetail::Add($QID,$Qty,$printColor,$productColorID);
         QuotationDetailController :: index();
 
     }
@@ -27,6 +26,14 @@ class QuotationDetailController{
         $key = $_GET['key'];
         $QuotationDetail_list = QuotationDetail::search($key);
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
+    }
+    public function updateForm(){
+        $QID = $_GET['QID'];
+        $QuotationDetail_list = QuotationDetail::get($QID);
+        $Quotation = Quotation::getAll();
+        $product_list = product::getAll();
+        require_once("./views/QuotationDetail/updateFormQuotaionDetail.php");;
+  
     }
 }
 ?>
