@@ -31,10 +31,10 @@ class QuotationController
 
     public function search()
     {
-        echo "contollerSearch1";
+        //echo "contollerSearch1";
         $key = $_GET['key'];
         $Quotation_list = Quotation::search($key);
-        echo "contollerSearch2";
+        //echo "contollerSearch2";
         require_once("./views/Quotation/index_Quotation.php");
         
     }
@@ -57,6 +57,20 @@ class QuotationController
         $paymentTerm = $_GET['paymentTerm'];
         $Deposit = $_GET['Deposit'];
         Quotation::update($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
+        QuotationController::index();
+    }
+
+    public function deleteConfirm()
+    {
+        $QID = $_GET['QID'];
+        $Quotation = Quotation::get($QID);
+        require_once("./views/Quotation/deleteConfirm.php");
+    }
+
+    public function delete()
+    {
+        $QID = $_GET['QID'];
+        Quotation::delete['QID'];
         QuotationController::index();
     }
 }

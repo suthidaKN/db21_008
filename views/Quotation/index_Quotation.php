@@ -46,7 +46,7 @@
 
     <td>[<a href='?controller=Quotation&action=updateForm&QID=$Quotation->QID'>Update</a>]</td>
 
-    <td>Delete</td>
+    <td>[<a href='?controller=Quotation&action=deleteConfirm&QID=$Quotation->QID'>Delete</a>]</td>
 
     </tr>";
 
