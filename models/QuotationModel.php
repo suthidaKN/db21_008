@@ -10,7 +10,6 @@ class Quotation
     public $cusName;
     public $Deposit;
 
-
     public function __construct($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit)
     {
         $this->QID = $QID;
@@ -50,11 +49,13 @@ class Quotation
 
     public static function add($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
     {
+        //echo "sql1=$sql"
         require("connection_connect.php");
         $sql = "INSERT INTO `Quotation`(`QID`,`date`,`empID`,`cusID`,`paymentTerm`,`Deposit`) VALUES ('$QID','$date','$empID','$cusID','$paymentTerm','$Deposit')";
+        echo "$QID,$date,$empID,$cusID,$paymentTerm,$Deposit";
         $result = $conn->query($sql);
         require("connection_close.php");
-       
+        
         return ;
     }
 
@@ -109,11 +110,11 @@ class Quotation
         return new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
     }
     
-    public static function update($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit)
+    public static function update($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
     {
         require("connection_connect.php");
-        $sql = "Update Quotation set date=$date 
-        where Quotation.empID = Employee.empID and Quotation.cusID = Customer.cusID and Quotation.QID = '$QID' ";
+        $sql = "UPDATE `Quotation` SET `date` = '$date', `empID` = '$empID', `cusID` = '$cusID', `paymentTerm` = '$paymentTerm', 
+        `Deposit` = '$Deposit' WHERE `Quotation`.`QID` = '$QID'";
         $result = $conn->query($sql);
 
         require("connection_close.php");

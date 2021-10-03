@@ -3,9 +3,9 @@ class QuotationController
 {
     public function index()
     {
-        echo "QuotationIndex1";
+        //echo "QuotationIndex1";
         $Quotation_list = Quotation::getAll();
-        echo "QuotationIndex2";
+        //echo "QuotationIndex2";
         require_once("./views/Quotation/index_Quotation.php");
     }
 
@@ -48,7 +48,7 @@ class QuotationController
         require_once("./views/Quotation/updateForm.php");
     }
 
-    public function update()
+    public function updateQuotation()
     {
         $QID = $_GET['QID'];
         $date = $_GET['date'];
@@ -70,7 +70,7 @@ class QuotationController
     public function delete()
     {
         $QID = $_GET['QID'];
-        Quotation::delete['QID'];
+        Quotation::delete($QID);
         QuotationController::index();
     }
 }

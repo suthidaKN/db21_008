@@ -5,6 +5,6 @@
     <input type="hidden" name="controller" value="Quotation" />
     <input type="hidden" name="QID" value="<?php echo $Quotation->QID; ?>" />
     <button type="submit" name="action" value="index">Back</button>
-    <button type="submit" name="action" value="deleteQuotation">Delete</button>
+    <button type="submit" name="action" value="delete">Delete</button>
 
 </form>

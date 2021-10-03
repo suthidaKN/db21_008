@@ -1,11 +1,6 @@
 <?php
-<<<<<<< Updated upstream
-$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','update'],
-'QuotationDetail'=>['index'],
-'ProductRate'=>['index']); //list controller
-=======
-$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','update','deleteConfirm','delete'],'QuotationDetail'=>['index']); //list controller
->>>>>>> Stashed changes
+
+$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','updateQuotation','deleteConfirm','delete'],'QuotationDetail'=>['index']); //list controller
 
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
@@ -15,24 +10,13 @@ function call($controller, $action){
                       break;
         case "Quotation": //echo "routeQuotation1";
                           require_once("./models/QuotationModel.php");
-<<<<<<< Updated upstream
-                          echo "routeQuotation2";
-                            require_once("./models/CustomerModel.php");
-                            require_once("./models/EmployeeModel.php");
-                    $controller = new QuotationController();  
-                    break;
-        case "ProductRate": require_once("./models/ProductRateModel.php");
-                            $controller = new ProductRateController();
-=======
                           //echo "routeQuotation2";
                           require_once("./models/CustomerModel.php");
                           require_once("./models/EmployeeModel.php");
                           $controller = new QuotationController();  
-                          break;
-        case "QuotationDetail" : echo "suthida";
-                            require_once("./models/QuotationDetailModel.php");
-                            $controller = new QuotationDetailController();
->>>>>>> Stashed changes
+                         break;
+        case "ProductRate": require_once("./models/ProductRateModel.php");
+                            $controller = new ProductRateController();
                             break;
 
 
