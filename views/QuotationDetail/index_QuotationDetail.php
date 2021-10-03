@@ -1,6 +1,12 @@
 <table border = 1 >
     <br>
    new QuotationDetail<a href="?controller=QuotationDetail&action=newQuotationDetail"> Click </a>
+   <br>
+<form method ="get" action="">
+    <input type = "text" name = "key">
+    <input type = "hidden" name = "controller" value = "QuotationDetail"/>
+    <button type = "submit" name = "action" value = "search">Search</button>
+</form>    
 <tr> 
 
     <td>QID</td>
@@ -26,9 +32,9 @@
 
     <td>$QuotationDetail->printColor</td>
 
-    <td>Update</td>
+    <td><a href='?controller=QuotationDetail&action=updateForm&QID=$QuotationDetail->QID'>Update</a></td>
 
-    <td>Delete</td>
+    <td><a href='?controller=QuotationDetail&action=deleteConfirm&QID=$QuotationDetail->QID'>Delete</a></td>
 
     </tr>";
 

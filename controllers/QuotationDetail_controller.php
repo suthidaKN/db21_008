@@ -2,7 +2,6 @@
 class QuotationDetailController{
     
     public function index(){
-        echo "aefs";
         $QuotationDetail_list = QuotationDetail::getAll();
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
     }

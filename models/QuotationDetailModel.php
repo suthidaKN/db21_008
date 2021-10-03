@@ -49,7 +49,7 @@ class QuotationDetail{
         $QuotationDetailList = [];
         require("./connection_connect.php");
         $sql ="SELECT * from QuotationDetail natural join Quotation natural join Product natural join ProductColor 
-        where ProductColor.productColorID = Quotation.productColorID AND ProductColor.productID = Product.productID AND Quotation.QID = QuotationDetail.QID 
+        where ProductColor.productColorID = QuotationDetail.productColorID AND ProductColor.productID = Product.productID AND Quotation.QID = QuotationDetail.QID 
         AND (Quotation.QID LIKE '%$key%' or QuotationDetail.Qty LIKE '%$key%')";
         $result = $conn->query($sql);
         while($my_rom = $result->fetch_assoc()){
