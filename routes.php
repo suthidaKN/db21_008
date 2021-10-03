@@ -14,6 +14,7 @@ function call($controller, $action){
                             require_once("./models/EmployeeModel.php");
                     $controller = new QuotationController();  
                     break;             
+        case "QuotationDetail" : echo "ออมสวย";
   
     }
 
