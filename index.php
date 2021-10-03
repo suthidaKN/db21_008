@@ -19,6 +19,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     [<a href="?controller=QuotationDetail&action=index"> QuotationDetail </a>]
     [<a href="?controller=ProductRate&action=index">ProductRate</a>]
     [<a href="?controller=Suthida&action=index">Suthida</a>]
+    [<a href="?controller=Suthida&action=index">Suthidaaaaaaa</a>]
     <?php require_once("./routes.php");?>
     
     
