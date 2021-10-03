@@ -16,7 +16,6 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     <?php echo "controller = ".$controller.", action = ".$action;?>
     <br>[<a href="?controller=pages&action=home">Home </a>] <br>
     <br>[<a href="?controller=Quotation&action=index">Quotation </a>] <br>
-    <br>[<a href="?controller=QuotationDetail&action=index">QuotationDetail </a>] <br>
     <?php require_once("./routes.php");?>
     
 </body>   
