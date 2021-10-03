@@ -16,7 +16,7 @@ function call($controller, $action){
                     break;
         case "QuotationDetail" : echo "suthida";
                             require_once("./models/QuotationDetailModel.php");
-                            $controller = new QuotationDetail();
+                            $controller = new QuotationDetailController();
                             break;
        
     

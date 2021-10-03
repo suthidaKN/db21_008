@@ -1,6 +1,6 @@
 <?php
-class QuotationDetail{
+class QuotationDetailController{
     public function index(){
-        echo "aaaa";
+        $QuotationDetail_list = QuotationDetail::
     }
 }
