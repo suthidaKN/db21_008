@@ -4,7 +4,7 @@
 
 <form method ="get" action="">
     <input type = "text" name = "key">
-    <input type = "hidden" name = "controller" value = "Quotation"/>
+    <input type = "hidden" name = "controller" value = "Quotation&action"/>
     <button type = "submit" name = "action" value = "search">Search</button>
 </form>    
 
