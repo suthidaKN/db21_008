@@ -1,5 +1,6 @@
 <?php
 class QuotationDetail{
+    echo "111!!!!";
     public $QID;
     public $productName;
     public $productColor;
@@ -16,6 +17,7 @@ class QuotationDetail{
     }
 
     public static function getAll(){
+        echo "!!!!";
         $QuotationDetailList = [];
         require("./connection_connect.php");
         $sql ="SELECT * FROM QuotationDetail ,Quotation,Product,ProductColor";
