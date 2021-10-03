@@ -17,8 +17,8 @@ function call($controller, $action){
                     $controller = new QuotationController();  
                     break;
         case "ProductRate": require_once("./models/ProductRateModel.php");
-                                    $controller = new ProductRateController();
-                                    break;
+                            $controller = new ProductRateController();
+                            break;
 
 
     }
