@@ -1,6 +1,6 @@
 <form method = "get" action = "">
 
-    <label>เลขใบสั่งซื้อ    <input type="text" name="QID"/></label><br>
+    <label>เลขใบสั่งซื้อ    <input type="text" name="QID" ></label><br>
 
     <label>วันที่      <input type="date" name="date" ></label><br>
     
