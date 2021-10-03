@@ -56,5 +56,29 @@ class Quotation
        
         return ;
     }
+
+    public static function search($key)
+    {
+        $QuotationList = [];
+         require("connection_connect.php");
+         $sql = "SELECT * FROM Quotation WHERE Quotation.QID LIKE '%$key%' ";
+         $result = $conn->query($sql);
+         while($row = $result->fetch_assoc())
+        {
+            $QID = $row[QID];
+            $date = $row[date];
+            $empID = $row[empID];
+            $cusID = $row[cusID];
+            $paymentTerm = $row[paymentTerm];
+            $empName = $row[empName];
+            $cusName = $row[cusName];
+            $Deposit = $row[Deposit];
+
+            $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
+        }
+        require("connection_close.php");
+
+        return $QuotationList;
+    }
 }
 ?>

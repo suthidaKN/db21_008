@@ -26,5 +26,13 @@ class QuotationController
         Quotation::add($QID,$date,$empID,$cusID,$paymentTerm,$Deposit);
         QuotationController::index();
     }
+
+    public function search()
+    {
+        $key = $_GET['key'];
+        $quotation_list = Quotation::search($key);
+        require_once("./views/Quotation/index_Quotation.php");
+    }
+
 }
 ?>
