@@ -1,5 +1,5 @@
 <?php
-$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','update'],'QuotationDetail'=>['index']); //list controller
+$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','update']); //list controller
 
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
@@ -14,11 +14,6 @@ function call($controller, $action){
                             require_once("./models/EmployeeModel.php");
                     $controller = new QuotationController();  
                     break;
-        case "QuotationDetail" : echo "routeQuotationDetail1";
-                                break;
-        
-
-  
     }
 
     $controller->{$action}();
