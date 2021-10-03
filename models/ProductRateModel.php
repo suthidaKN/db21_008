@@ -28,7 +28,7 @@ class ProductRate
             $PName = $row[productName];
             $Qty = $row[Qty];
             $Price = $row[price];
-            $ScreenPrice = $row[ScreenColr];
+            $ScreenPrice = $row[ScreenColor];
             $ProductRateList[] = new ProductRate($PID,$PName,$Qty,$Price,$ScreenPrice);
         }
         require("connection_close.php");
