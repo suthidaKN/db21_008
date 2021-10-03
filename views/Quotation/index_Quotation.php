@@ -44,7 +44,7 @@
 
     <td>$Quotation->Deposit</td>
 
-    <td>Update</td>
+    <td>[<a href='?controller=Quotation&action=updateForm&QID=$Quotation->QID'>Update</a>]</td>
 
     <td>Delete</td>
 

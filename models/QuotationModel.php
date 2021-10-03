@@ -25,6 +25,7 @@ class Quotation
 
     public static function getAll()
     {
+        echo "getAll";
         $QuotationList = [];
         require("connection_connect.php");
         $sql = "SELECT * FROM Quotation NATURAL JOIN Employee NATURAL JOIN Customer";
@@ -39,7 +40,7 @@ class Quotation
             $empName = $row[empName];
             $cusName = $row[cusName];
             $Deposit = $row[Deposit];
-
+            echo "$QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit";
             $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
         }
         require("connection_close.php");
@@ -59,11 +60,16 @@ class Quotation
 
     public static function search($key)
     {
+        echo "123";
         $QuotationList = [];
          require("connection_connect.php");
-         $sql = "SELECT * FROM Quotation,Employee,Customer WHERE Quotation.empID = Employee.empID AND Quotation.cusID = Customer.cusID 
+         $sql = "SELECT * FROM Quotation
+         NATURAL JOIN Employee
+         NATURAL JOIN Customer 
+         WHERE Quotation.empID = Employee.empID AND Quotation.cusID = Customer.cusID 
          AND (Quotation.QID LIKE '%$key%' OR Customer.cusName LIKE '%$key%' OR Employee.empID LIKE '%$key%'
          OR Employee.empName LIKE '%$key%')";
+         echo "sql=$sql";
          $result = $conn->query($sql);
          while($row = $result->fetch_assoc())
         {
@@ -81,6 +87,38 @@ class Quotation
         require("connection_close.php");
 
         return $QuotationList;
+    }
+    public static function get($QID)
+    {
+        require("connection_connect.php");
+        $sql = "SELECT * FROM Quotation NATURAL JOIN Employee NATURAL JOIN Customer
+        where Quotation.empID = Employee.empID and Quotation.cusID = Customer.cusID and Quotation.QID = '$QID' ";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $QID = $row[QID];
+        $date = $row[date];
+        $empID = $row[empID];
+        $cusID = $row[cusID];
+        $paymentTerm = $row[paymentTerm];
+        $empName = $row[empName];
+        $cusName = $row[cusName];
+        $Deposit = $row[Deposit];
+    
+        require("connection_close.php");
+
+        return new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
+    }
+    
+    public static functon update($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit)
+    {
+        require("connection_connect.php");
+        $sql = "update Quotation set date=$date 
+        where Quotation.empID = Employee.empID and Quotation.cusID = Customer.cusID and Quotation.QID = '$QID' ";
+        $result = $conn->query($sql);
+
+        require("connection_close.php");
+
+        return "Update Success $result row";
     }
 }
 ?>
