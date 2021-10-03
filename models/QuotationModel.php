@@ -39,7 +39,6 @@ class Quotation
             $empName = $row[empName];
             $cusName = $row[cusName];
             $Deposit = $row[Deposit];
-            //echo "$QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit";
             $QuotationList[] = new Quotation($QID,$date,$empID,$cusID,$paymentTerm,$cusName,$empName,$Deposit);
         }
         require("connection_close.php");
