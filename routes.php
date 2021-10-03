@@ -11,11 +11,10 @@ function call($controller, $action){
                       break;
         case "Quotation": echo "routeQuotation1";
                           require_once("./models/QuotationModel.php");
-                          echo "routeQuotation2";
-                            require_once("./models/CustomerModel.php");
-                            require_once("./models/EmployeeModel.php");
-                    $controller = new QuotationController();  
-                    break;
+                          require_once("./models/CustomerModel.php");
+                          require_once("./models/EmployeeModel.php");
+                          $controller = new QuotationController();  
+                          break;
         case "ProductRate": require_once("./models/ProductRateModel.php");
                             $controller = new ProductRateController();
                             break;
