@@ -3,9 +3,7 @@ class QuotationController
 {
     public function index()
     {
-        //echo "QuotationIndex1";
         $Quotation_list = Quotation::getAll();
-        //echo "QuotationIndex2";
         require_once("./views/Quotation/index_Quotation.php");
     }
 
@@ -31,10 +29,8 @@ class QuotationController
 
     public function search()
     {
-        //echo "contollerSearch1";
         $key = $_GET['key'];
         $Quotation_list = Quotation::search($key);
-        //echo "contollerSearch2";
         require_once("./views/Quotation/index_Quotation.php");
         
     }

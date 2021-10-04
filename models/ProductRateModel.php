@@ -42,7 +42,6 @@ class ProductRate
     public static function Add($productID,$Qty,$Price,$ScreenPrice){
         require("./connection_connect.php");
 
-        echo "$productID,$Qty,$Price,$ScreenPrice";
         $sql = "INSERT INTO `Pricing` (`pricingID`, `Qty`, `Qty(vc)`, `price`, `screenColor`, `productID`) 
         VALUES (NULL, '$Qty','$Qty', '$Price', '$ScreenPrice', '$productID')";
 
@@ -73,7 +72,6 @@ class ProductRate
 
     public static function update($PrID,$productID,$Qty,$Price,$ScreenPrice){
         require("./connection_connect.php");
-        echo "Update = $PrID,$productID,$Qty,$Price,$ScreenPrice";
         $sql = "UPDATE `Pricing` SET `Qty` = '$Qty', `Qty(vc)` = '$Qty',
          `price` = '$Price', `screenColor` = '$ScreenPrice', `productID` = '$productID' WHERE `Pricing`.`pricingID` = '$PrID'";
 
@@ -107,7 +105,6 @@ class ProductRate
 
     public static function delete($PrID)
     {
-        echo "De =$PrID";
         require_once("./connection_connect.php");
         $sql = "DELETE FROM `Pricing` WHERE `Pricing`.`pricingID` = '$PrID' ";
         $result = $conn->query($sql);

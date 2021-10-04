@@ -3,7 +3,7 @@
 $controllers = array('pages'=>['home', 'error'],
 'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','updateQuotation','deleteConfirm','delete'],
 'QuotationDetail'=>['index','newQuotationDetail','addQuotationDetail','search','updateForm','update','deleteConfirm','delete'],
-'ProductRate'=>['index','newProductRate','addProductRate','search','updateForm','updateProductRate','deleteConfirm','delete']); //list controller
+'ProductRate'=>['index','newProductRate','addProductRate','search','updateForm','updateProductRate','deleteConfirm','delete']);
 
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
@@ -11,9 +11,7 @@ function call($controller, $action){
     {
         case "pages":  $controller = new PagesController();
                       break;
-        case "Quotation": //echo "routeQuotation1";
-                          require_once("./models/QuotationModel.php");
-                          //echo "routeQuotation2";
+        case "Quotation": require_once("./models/QuotationModel.php");
                           require_once("./models/CustomerModel.php");
                           require_once("./models/EmployeeModel.php");
                           $controller = new QuotationController();  

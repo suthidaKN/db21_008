@@ -24,7 +24,7 @@ class Quotation
 
     public static function getAll()
     {
-        //echo "getAll";
+
         $QuotationList = [];
         require("connection_connect.php");
         $sql = "SELECT * FROM Quotation NATURAL JOIN Employee NATURAL JOIN Customer";
@@ -49,7 +49,6 @@ class Quotation
 
     public static function add($QID,$date,$empID,$cusID,$paymentTerm,$Deposit)
     {
-        //echo "sql1=$sql"
         require("connection_connect.php");
         $sql = "INSERT INTO `Quotation`(`QID`,`date`,`empID`,`cusID`,`paymentTerm`,`Deposit`) VALUES ('$QID','$date','$empID','$cusID','$paymentTerm','$Deposit')";
         echo "$QID,$date,$empID,$cusID,$paymentTerm,$Deposit";
@@ -61,7 +60,6 @@ class Quotation
 
     public static function search($key)
     {
-        //echo "123";
         $QuotationList = [];
          require("connection_connect.php");
          $sql = "SELECT * FROM Quotation
@@ -70,7 +68,6 @@ class Quotation
          WHERE Quotation.empID = Employee.empID AND Quotation.cusID = Customer.cusID 
          AND (Quotation.QID LIKE '%$key%' OR Customer.cusName LIKE '%$key%' OR Employee.empID LIKE '%$key%'
          OR Employee.empName LIKE '%$key%')";
-         //echo "sql=$sql";
          $result = $conn->query($sql);
          while($row = $result->fetch_assoc())
         {

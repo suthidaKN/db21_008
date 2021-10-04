@@ -43,7 +43,6 @@ class QuotationDetail{
     public static function Add($QID,$Qty,$printColor,$productColorID){
         require("./connection_connect.php");
 
-        echo "$QID,$Qty,$printColor,$productColorID";
         $sql = "INSERT INTO `QuotationDetail` (`QD_ID`, `productColorID`, `Qty`, `printColor`, `QID`)
          VALUES (NULL, '$productColorID', '$Qty', '$printColor', '$QID')";
 
@@ -95,7 +94,6 @@ class QuotationDetail{
 
     public static function update($QID,$Qty,$printColor,$productColorID){
         require("./connection_connect.php");
-        echo "Update = $QID";
         $sql = "UPDATE `QuotationDetail` SET `productColorID` = '$productColorID', `Qty` = '$Qty'
         , `printColor` = '$printColor' WHERE `QuotationDetail`.`QD_ID` = '$QID'";
 
