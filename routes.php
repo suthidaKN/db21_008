@@ -1,6 +1,8 @@
 <?php
 
-$controllers = array('pages'=>['home', 'error'],'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','updateQuotation','deleteConfirm','delete'],'QuotationDetail'=>['index','newQuotationDetail','addQuotationDetail','search','updateForm','update']); //list controller
+$controllers = array('pages'=>['home', 'error'],
+'Quotation'=>['index','newQuotation','addQuotation','search','updateForm','updateQuotation','deleteConfirm','delete'],
+'QuotationDetail'=>['index','newQuotationDetail','addQuotationDetail','search','updateForm','update','deleteConfirm','delete']); //list controller
 
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");

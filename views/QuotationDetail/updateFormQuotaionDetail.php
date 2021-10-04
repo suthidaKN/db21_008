@@ -1,22 +1,22 @@
 <form method="get" action="">
 
-    <label>รหัสใบสินค้า <input type="text" name="QID" 
+    <label>เลขใบสั่งซื้อ <input type="text" name="QID" 
     value="<?php echo $QuotationDetail->QID; ?>"/></label><br>
     <label>สินค้า    <select name="productID">
         <?php foreach($product_list as $p)
         {
              echo "<option value=$p->productID";
-             if($p->productID==$product->productID) {echo " selected='selected'";}
-             echo "> $product->productName </option>";
+             if($QuotationDetail->productID==$p->productID) {echo " selected='selected'";}
+             echo "> $p->productName </option>";
         }
         ?>
     </select></label><br>
     <label>สี <select name="productColorID">
         <?php foreach($productColor_list as $p)
         {
-             echo "<option value=$product->productColorID";
-             if($p->productColorID==$productColor->productColorID) {echo " selected='selected'";}
-             echo "> $product->color</option>";
+             echo "<option value=$p->productColorID";
+             if($QuotationDetail->productColorID==$p->productColorID) {echo " selected='selected'";}
+             echo "> $p->color</option>";
         }
         ?>
     </select></label><br>
@@ -26,8 +26,8 @@
     value="<?php echo $QuotationDetail->printColor; ?>"/></label><br>
 
     <input type="hidden" name="controller" value="QuotationDetail"/><br>
-    <input type="hidden" name="QID" value="<?php echo $QuotationDetail->QID; ?>" />
+    <input type="hidden" name="QD_ID" value="<?php echo $QuotationDetail->QD_ID; ?>" />
     <button type="submit" name="action" value="index">Back</button>
-    <button type="submit" name="action" value="update">update</button>
+    <button type="submit" name="action" value="update">Update</button>
 
 </form>

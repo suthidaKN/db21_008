@@ -62,7 +62,7 @@ class QuotationController
 
     public function deleteConfirm()
     {
-        $QID = $_GET['QID'];
+        $QID = $_GET['QD_ID'];
         $Quotation = Quotation::get($QID);
         require_once("./views/Quotation/deleteConfirm.php");
     }

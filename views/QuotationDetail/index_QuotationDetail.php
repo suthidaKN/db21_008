@@ -32,9 +32,9 @@
 
     <td>$QuotationDetail->printColor</td>
 
-    <td><a href='?controller=QuotationDetail&action=updateForm&QID=$QuotationDetail->QID'>Update</a></td>
+    <td><a href='?controller=QuotationDetail&action=updateForm&QID=$QuotationDetail->QD_ID'>Update</a></td>
 
-    <td><a href='?controller=QuotationDetail&action=deleteConfirm&QID=$QuotationDetail->QID'>Delete</a></td>
+    <td><a href='?controller=QuotationDetail&action=deleteConfirm&QID=$QuotationDetail->QD_ID'>Delete</a></td>
 
     </tr>";
 
