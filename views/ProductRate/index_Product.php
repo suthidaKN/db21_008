@@ -1,6 +1,11 @@
 <table border = 1 >
 
 <br>New ProductRate <a href="?controller=ProductRate&action=newProductRate">Click</a><br>
+<form method ="get" action="">
+    <input type = "text" name = "key">
+    <input type = "hidden" name = "controller" value = "ProductRate"/>
+    <button type = "submit" name = "action" value = "search">Search</button>
+</form>  
 <tr> 
 
     <td>PID</td>
@@ -33,9 +38,9 @@
 
     <td>$ProductRate->ScreenPrice</td>
 
-    <td>[<a href='?controller=ProductRate&action=updateForm&QID=$ProductRate->PID'>Update</a>]</td>
+    <td>[<a href='?controller=ProductRate&action=updateForm&PrID=$ProductRate->PID'>Update</a>]</td>
 
-    <td>[<a href='?controller=ProductRate&action=deleteConfirm&QID=$ProductRate->PID'>Delete</a>]</td>
+    <td>[<a href='?controller=ProductRate&action=deleteConfirm&PrID=$ProductRate->PID'>Delete</a>]</td>
 
     </tr>";
 
