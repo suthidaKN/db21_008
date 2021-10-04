@@ -88,6 +88,7 @@ class QuotationDetail{
         $printColor = $my_rom[printColor];
         $productColorID = $my_rom[productColorID];
         $productID = $my_rom[productID];
+        $QD_ID = $my_rom[QD_ID];
         require("./connection_close.php");
         return new QuotationDetail($QID,$productName,$productColor,$Qty,$printColor,$productID,$productColorID,$QD_ID);
     }

@@ -1,4 +1,6 @@
 <table border = 1 >
+
+<br>New ProductRate <a href="?controller=ProductRate&action=newProductRate">Click</a><br>
 <tr> 
 
     <td>PID</td>
@@ -29,11 +31,11 @@
 
     <td>$ProductRate->Price</td>
 
-    <td>$ProductRaten->ScreenPrice</td>
+    <td>$ProductRate->ScreenPrice</td>
 
-    <td>Update</td>
+    <td>[<a href='?controller=ProductRate&action=updateForm&QID=$ProductRate->PID'>Update</a>]</td>
 
-    <td>Delete</td>
+    <td>[<a href='?controller=ProductRate&action=deleteConfirm&QID=$ProductRate->PID'>Delete</a>]</td>
 
     </tr>";
 

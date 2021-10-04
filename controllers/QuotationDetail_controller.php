@@ -28,9 +28,7 @@ class QuotationDetailController{
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
     }
     public function updateForm(){
-        echo "bbbb";
         $QID = $_GET['QID'];
-        echo "$QID";
         $QuotationDetail = QuotationDetail::get($QID);
         $product_list = product::getAll();
         $productColor_list = productColor::getAll();
@@ -39,25 +37,24 @@ class QuotationDetailController{
     }
 
     public function update(){
-        echo "aaaa";
         $productColorID =$_GET['productColorID'];
         $Qty = $_GET['Qty'];
         $printColor = $_GET['printColor'];
         $QID = $_GET['QD_ID'];
-        echo "up ==== $QID";
         QuotationDetail::update($QID,$Qty,$printColor,$productColorID);
         QuotationDetailController :: index();
     }
 
     public function deleteConfirm()
     {
-        $QID = $_GET['QD_ID'];
+        $QID = $_GET['QID'];
         $QuotationDetail = QuotationDetail::get($QID);
         require_once("./views/QuotationDetail/deleteConfirm.php");
     }
 
     public function delete()
     {
+        
         $QID = $_GET['QD_ID'];
         QuotationDetail::delete($QID);
         QuotationDetailController::index();

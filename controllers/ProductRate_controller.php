@@ -8,8 +8,17 @@ class ProductRateController{
     }
 
     public function newProductRate(){
-        $Product_list = Product::getAll();
-        require_once("./views/productRate/newProductRate.php");
+        $product_list = Product::getAll();
+        require_once("./views/ProductRate/newProductRate.php");
+    }
+
+    public function addProductRate(){
+        $productID =$_GET['productID'];
+        $Qty = $_GET['Qty'];
+        $Price = $_GET['Price'];
+        $ScreenPrice = $_GET['ScreenPrice'];
+        ProductRate::Add($productID,$Qty,$Price,$ScreenPrice);
+        ProductRateController::index();
     }
 
 
