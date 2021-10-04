@@ -56,7 +56,7 @@ class ProductRate
 
         require("./connection_connect.php");
         $sql ="SELECT * FROM Pricing NATURAL JOIN Product 
-        where  Pricing.productID = Product.productID";
+        where  Pricing.productID = Product.productID and Pricing.pricingID = '$PID'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 
@@ -75,7 +75,7 @@ class ProductRate
         require("./connection_connect.php");
         echo "Update = $PrID,$productID,$Qty,$Price,$ScreenPrice";
         $sql = "UPDATE `Pricing` SET `Qty` = '$Qty', `Qty(vc)` = '$Qty',
-         `price` = '$Price', `screenColor` = '$ScreenPrice', `productID` = '$productID' WHERE `Pricing`.`pricingID` = $PrID";
+         `price` = '$Price', `screenColor` = '$ScreenPrice', `productID` = '$productID' WHERE `Pricing`.`pricingID` = '$PrID'";
 
         $result = $conn->query($sql);
 
@@ -103,6 +103,17 @@ class ProductRate
         }
         require("./connection_close.php");
         return $ProductRateList;
+    }
+
+    public static function delete($PrID)
+    {
+        echo "De =$PrID";
+        require_once("./connection_connect.php");
+        $sql = "DELETE FROM `Pricing` WHERE `Pricing`.`pricingID` = '$PrID' ";
+        $result = $conn->query($sql);
+        require("./connection_close.php");
+
+        return "delete success $result row";
     }
     
 

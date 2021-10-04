@@ -1,4 +1,4 @@
-<?php echo "<br> Are you sure to delete this Quotation $QuotationDetail->QID $QuotationDetail->productName  <br>"; ?>
+<?php echo "<br> Are you sure to delete this QuotationDetail $QuotationDetail->QID $QuotationDetail->productName  <br>"; ?>
 
 <form method="get" action="">
 

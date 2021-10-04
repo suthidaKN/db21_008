@@ -38,9 +38,9 @@
 
     <td>$ProductRate->ScreenPrice</td>
 
-    <td>[<a href='?controller=ProductRate&action=updateForm&PrID=$ProductRate->PID'>Update</a>]</td>
+    <td>[<a href='?controller=ProductRate&action=updateForm&PID=$ProductRate->PrID'>Update</a>]</td>
 
-    <td>[<a href='?controller=ProductRate&action=deleteConfirm&PrID=$ProductRate->PID'>Delete</a>]</td>
+    <td>[<a href='?controller=ProductRate&action=deleteConfirm&PID=$ProductRate->PrID'>Delete</a>]</td>
 
     </tr>";
 

@@ -108,7 +108,6 @@ class QuotationDetail{
 
     public static function delete($QID)
     {
-        echo "De =$QID";
         require_once("./connection_connect.php");
         $sql = "DELETE FROM `QuotationDetail` WHERE `QuotationDetail`.`QD_ID` = $QID";
         $result = $conn->query($sql);

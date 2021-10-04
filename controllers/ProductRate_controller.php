@@ -22,7 +22,7 @@ class ProductRateController{
     }
 
     public function updateForm(){
-        $PrID = $_GET['PrID'];//s******
+        $PrID = $_GET['PID'];
         $ProductRate = ProductRate::get($PrID);
         $product_list = product::getAll();
         require_once("./views/ProductRate/updateFormProductRate.php");
@@ -43,6 +43,23 @@ class ProductRateController{
         $ProductRate_list = ProductRate::search($key) ;
         require_once("./views/ProductRate/index_Product.php");
     }
+
+    public function deleteConfirm()
+    {
+        $PID = $_GET['PID'];
+        $ProductRate = ProductRate::get($PID);
+        require_once("./views/ProductRate/deleteConfirm.php");
+    }
+
+    public function delete()
+    {
+        
+        $PrID = $_GET['PrID'];
+        ProductRate::delete($PrID);
+        ProductRateController::index();
+    }
+
+    
 
 
 }
