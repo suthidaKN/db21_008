@@ -87,6 +87,12 @@ class QuotationDetail{
         return new QuotationDetail($QID,$productName,$productColor,$Qty,$printColor,$productID,$productColorID);
     }
 
+    public static function update($QID,$Qty,$printColor,$productColorID){
+        require("./connection_connect.php");
+        $sql = "UPDATE `QuotationDetail` SET `productColorID` = '$productColorID', `Qty` = '$Qty'
+        , `printColor` = '$printColor' WHERE `QuotationDetail`.`QID` = '$QID'";
+    }
+
 
     
 }

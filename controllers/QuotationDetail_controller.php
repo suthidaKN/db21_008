@@ -28,12 +28,24 @@ class QuotationDetailController{
         require_once("./views/QuotationDetail/index_QuotationDetail.php");
     }
     public function updateForm(){
+        echo "bbbb";
         $QID = $_GET['QID'];
         $QuotationDetail_list = QuotationDetail::get($QID);
         $Quotation = Quotation::getAll();
         $product_list = product::getAll();
-        require_once("./views/QuotationDetail/updateFormQuotaionDetail.php");;
+        $productColor_list = productColor::getAll();
+        require_once("./views/QuotationDetail/updateFormQuotaionDetail.php");
   
+    }
+
+    public function update(){
+        echo "aaaa";
+        $productColorID =$_GET['productColorID'];
+        $Qty = $_GET['Qty'];
+        $printColor = $_GET['printColor'];
+        $QID = $_GET['QID'];
+        QuotationDetail::update($QID,$Qty,$printColor,$productColorID);
+        QuotationDetailController :: index();
     }
 }
 ?>
