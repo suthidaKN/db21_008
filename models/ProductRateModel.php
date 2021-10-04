@@ -43,8 +43,8 @@ class ProductRate
         require("./connection_connect.php");
 
         echo "$productID,$Qty,$Price,$ScreenPrice";
-        $sql = "INSERT INTO `Pricing` (`pricingID`, `Qty`, `price`, `screenColor`, `productID`) 
-        VALUES (NULL, '$Qty', '$Price', '$ScreenPrice', '$productID')";
+        $sql = "INSERT INTO `Pricing` (`pricingID`, `Qty`, `Qty(vc)`, `price`, `screenColor`, `productID`) 
+        VALUES (NULL, '$Qty','$Qty', '$Price', '$ScreenPrice', '$productID')";
 
         $result = $conn->query($sql);
         require("./connection_close.php");
